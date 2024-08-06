@@ -1,0 +1,31 @@
+Extract the names of the desired codebase-specific types to search for. Ignore standard library types or wrappers. Prefer fully qualified names over shorthand names.
+
+Return a JSON result, with a list of "identifiers" as shown:
+
+```json
+{
+	identifiers: [
+		"Some.Example.Identifier",
+		"Some.Other.Identifier"
+	]
+}
+```
+
+## EXAMPLE
+The relationships extracted from the provided C# code have some missing type information. Specifically, the type of the `site` variable returned by `GraphServiceClient.FetchSiteByIdAsync` is not fully qualified, and the type of the `publishedSite` variable returned by `OneNoteAssimilator.CreatePublishedSiteAsync` is also not fully qualified.
+
+Search these types:
+1. `GraphServiceClient.FetchSiteByIdAsync` return type (likely `Site` or a more specific type).
+2. `OneNoteAssimilator.CreatePublishedSiteAsync` return type (likely `AppClient.Model.PublishedOneNoteSite` or a more specific type).
+
+These additional class or interface docs will help complete the type information in our extracted triples.
+
+```json
+{
+	"identifiers": [
+		"GraphServiceClient.FetchSiteByIdAsync",
+		"OneNoteAssimilator.CreatePublishedSiteAsync"
+	]
+}
+```
+## END EXAMPLE

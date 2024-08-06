@@ -1,0 +1,5 @@
+First, reason about the entities in the listed relationships and determine if there are any missing type or type qualification information. Classes/Interfaces should at least either have a parent class or namespace in their identifier, and methods should have a parent type in their identifier as well.
+
+If the relationships you found have any missing type information, then respond with "Search these types:" followed by a short list of what other class or interface docs we could use to read from to complete the type information in our extracted triples. Prefer to use the fully qualified name of the type if you know it.
+
+If the relationships you found have complete type information, then end your response with a "Skip search types step".

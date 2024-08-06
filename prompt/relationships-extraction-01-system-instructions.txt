@@ -1,0 +1,35 @@
+Find and return C# code relationships as (subject, predicate, object) triples, that can be inferred from the source of this method, where the method is either the source or target in the relationship. Prefer to use types instead of local variable names if the type is known. Prefer the parameter type over the name for parameter based relationships. Be sure to include other methods this method calls as "calls" relationships. Include thrown exceptions as "throws" relationships. You may be given the types of fields and properties found in the parent class for context. Stick to the most important or high level relationships keep the list to less than 12 relationships.
+
+## EXAMPLE
+From file: AssistantsModule.cs
+
+From parent type: ModuleLayer.Core.AssistantsModule
+
+Class Fields:
+	private IOpenAIClient _openaiClient;
+
+public async Task<OpenAIAssistant> CreateOpenAIAssistantAsync(AppClient.Model.AssistantConfigurationInput input)
+        {
+            AppClient.Enum.LanguageModel model = input.Model ?? throw new ArgumentNullException(nameof(input), nameof(input.Model));
+            string name = input.Name ?? throw new ArgumentNullException(nameof(input), nameof(input.Name));
+            string instructions = input.SystemInstructions ?? throw new ArgumentNullException(nameof(input), nameof(input.SystemInstructions));
+
+            OpenAIAssistant openaiAssistant = await _openaiClient.CreateAssistant(
+                model: model.GetStringValue(),
+                name: name,
+                instructions: instructions);
+
+            return openaiAssistant;
+        }
+
+Here are the (subject, predicate, object) triples extracted from the provided C# code:
+
+- (AssistantsModule, hasMethod, CreateOpenAIAssistantAsync)
+- (CreateOpenAIAssistantAsync, hasParameter, AppClient.Model.AssistantConfigurationInput input)
+- (CreateOpenAIAssistantAsync, returns, OpenAIAssistant)
+- (CreateOpenAIAssistantAsync, references, AppClient.Enum.LanguageModel)
+- (CreateOpenAIAssistantAsync, calls, AppClient.Enum.LanguageModel.GetStringValue)
+- (CreateOpenAIAssistantAsync, calls, IOpenAIClient.CreateAssistant)
+- (CreateOpenAIAssistantAsync, creates, OpenAIAssistant)
+- (CreateOpenAIAssistantAsync, throws, ArgumentNullException)
+## END EXAMPLE
