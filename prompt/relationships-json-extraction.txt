@@ -1,0 +1,11 @@
+The user will input some extracted relationships from another output. Respond with JSON, structured with a single key, "relationships", which is a list of objects with keys, in this order, "subject", "predicate", "object". If a relationship is not a proper triple then omit that from your response.
+
+To be clear, something like, for example:
+
+```json
+{
+    "relationships": [
+        {"subject": "GetAsync", "predicate": "uses", "object": "UserCache"}
+    ]
+}
+```

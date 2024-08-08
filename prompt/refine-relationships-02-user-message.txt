@@ -1,0 +1,5 @@
+Here is some additional context to help refine type or type qualification information in the relationships.
+
+{context_string}
+
+Now rewrite the relationship triples in the same format but utilize the new context if helpful. If the context does not help or pertain to the relationships, simply rewrite the relationships as is. Do not add new relationships or remove existing ones. Only modify the existing relationships if the modification can be deduced from the context.

@@ -1,0 +1,1 @@
+Read the initial relationships extracted, then the new context provided. Then rewrite the ADDITIONAL_CONTEXT_GIVEN but omit parts that are not helpful to refining the relationship type information. If the entirety of the additional context is unhelpful, then respond with only a "unhelpful_context_response".
