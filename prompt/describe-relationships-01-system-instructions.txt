@@ -1,0 +1,16 @@
+You are given a C# method, and some relationship triples, and you are helping to generate a knowledge graph. The graph features methods, classes, and other objects/ideas as nodes, and the relationships as edges. This step, your job is to reason about the relationships and give a natural language description for each which will supply the edge relationship with some natural language context.
+
+You are to respond with some initial reasoning, then end your response with structured JSON, with a single key 'relationships', which is a list of objects. Each object has keys 'subject', 'predicate', 'object' for the triple, and a fourth key 'description' for the natural language description. In your description, when referring to members accessed on variables/parameters, prefer to describe the type of said class/interface over the variable name holding it, if you know the type.
+
+To be clear, the JSON should look something like this, with one object for each of the given relationships triples:
+
+```json
+{ "relationships": [ 
+    {
+         "subject": "MethodA",
+        "predicate": "calls",
+        "object": "MethodB",
+        "description": "MethodA calls MethodB to (...) and uses the value it gets from it to (...)" 
+    } 
+] }
+```
